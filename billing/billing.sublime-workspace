@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "www/js/app.js",
+			"settings":
+			{
+				"buffer_size": 3917,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/js/controllers/FriendsController.js",
+			"settings":
+			{
+				"buffer_size": 524,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/templates/tab-dash.html",
+			"settings":
+			{
+				"buffer_size": 248,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/templates/tabs.html",
+			"settings":
+			{
+				"buffer_size": 730,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/templates/tab-account.html",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/templates/friend-detail.html",
+			"settings":
+			{
+				"buffer_size": 395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/templates/tab-friends.html",
+			"settings":
+			{
+				"buffer_size": 267,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/index.html",
+			"settings":
+			{
+				"buffer_size": 1466,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/W/bill/billing/www/js/controllers/DashboardController.js",
+		"/W/bill/billing/www/js/controllers/FriendDetailController.js",
+		"/W/bill/billing/www/js/services/AuthService.js",
+		"/W/bill/billing/www/js/controllers/LoginController.js",
+		"/W/bill/billing/www/js/controllers/ApplicationController.js",
+		"/W/bill/billing/www/js/controllers/FriendsController.js",
+		"/W/bill/billing/www/index.html",
+		"/W/bill/billing/www/js/app.js",
+		"/W/bill/billing/www/js/controllers/AccountController.js",
+		"/W/bill/billing/www/js/controllers/LogoutController.js",
+		"/W/bill/billing/www/templates/login.html",
+		"/W/bill/billing/www/js/services/FriendService.js",
+		"/W/bill/billing/www/js/services/services.js",
+		"/W/bill/billing/www/js/controllers/controllers.js",
+		"/W/bill/billing/www/lib/ionic/js/angular-http-auth/http-auth-interceptor.js",
+		"/W/bill/billing/www/templates/tab-dash.html",
+		"/W/bill/billing/www/templates/tabs.html",
+		"/W/bill/billing/www/js/config.js",
+		"/W/bill/billing/www/js/services.js",
+		"/W/bill/billing/www/js/controllers.js",
+		"/W/bill/billing/www/lib/ionic/js/angular/angular.js",
+		"/W/bill/billing/www/js/AuthService.js",
+		"/W/bill/billing/www/js/LoginController.js",
+		"/W/bill/billing/www/js/LogoutController.js",
+		"/C/Users/Volodymyr/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Volodymyr/Desktop/cgi-bin_/stat.pl"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"LoginCtrl",
+			"LoginCtrl\nLoginCtrl",
+			"event:auth-loginRequired",
+			"modal",
+			"event:auth-loginRequired",
+			"billing_list",
+			"event:auth-login-failed",
+			"billing_list",
+			"window.app",
+			"App",
+			"DashCtrl",
+			";\n",
+			"//$",
+			"AuthService",
+			"    <",
+			"AuthenticationService",
+			"DashCtrl",
+			"$ionicModal.fromTemplateUrl('templates/login.html', function(modal) {\n        $scope.loginModal = modal;\n    }, {\n        scope: $scope,\n        animation: 'slide-in-up',\n        focusFirstInput: true\n    });\n    //Be sure to cleanup the modal by removing it from the DOM\n    $scope.$on('$destroy', function() {\n        $scope.loginModal.remove();\n    });",
+			"FriendsCtrl",
+			"FriendsController"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "www/js/app.js",
+					"settings":
+					{
+						"buffer_size": 3917,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3021,
+								3032
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/js/controllers/FriendsController.js",
+					"settings":
+					{
+						"buffer_size": 524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								494
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/templates/tab-dash.html",
+					"settings":
+					{
+						"buffer_size": 248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "www/templates/tabs.html",
+					"settings":
+					{
+						"buffer_size": 730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								541
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "www/templates/tab-account.html",
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "www/templates/friend-detail.html",
+					"settings":
+					{
+						"buffer_size": 395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "www/templates/tab-friends.html",
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "www/index.html",
+					"settings":
+					{
+						"buffer_size": 1466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1413,
+								1225
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 30.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"app",
+				"js/app.js"
+			],
+			[
+				"login",
+				"js/controllers/LoginController.js"
+			],
+			[
+				"lo",
+				"js/controllers/LoginController.js"
+			],
+			[
+				"serv",
+				"js/services/services.js"
+			],
+			[
+				"con",
+				"js/controllers/controllers.js"
+			],
+			[
+				"fri",
+				"js/services/FriendService.js"
+			],
+			[
+				"templa",
+				"templates/tab-dash.html"
+			],
+			[
+				"accoun",
+				"js/controllers/AccountController.js"
+			],
+			[
+				"frien",
+				"js/controllers/FriendDetailController.js"
+			],
+			[
+				"frie",
+				"js/controllers/FriendsController.js"
+			],
+			[
+				"dash",
+				"js/controllers/DashboardController.js"
+			],
+			[
+				"auth",
+				"js/services/AuthService.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/W/bill/test/test.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 245.0,
+	"status_bar_visible": true
+}
