@@ -3,11 +3,20 @@
     "description": "billing rest app",
     "version": "0.0.1",
     "private": true,
+    "appenders": [{
+        "type": "console"
+    }, {
+        "type": "file",
+        "filename": "logs/server.log",
+        "category": "server"
+    }],
+    "replaceConsole": true,
     "dependencies": {
         "express": "3.x",
         "body-parser": "~1.0.1",
         "redis": "0.10.3",
         "connect-redis": "1.4.7",
-        "redis-sessions": "0.3.x"
+        "redis-sessions": "0.3.x",
+        "log4js": "0.6.14"
     }
 }

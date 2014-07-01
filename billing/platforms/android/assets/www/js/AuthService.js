@@ -1,1 +1,0 @@
-angular.module('starter.services', ['http-auth-interceptor'])

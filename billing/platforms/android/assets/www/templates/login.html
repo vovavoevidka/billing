@@ -1,12 +1,9 @@
 <div class="modal" ng-controller="LoginCtrl">
-    <ion-header-bar class="bar-stable">
+    <ion-header-bar class="bar-dark">
       <h1 class="title">Login</h1>
     </ion-header-bar> 
     <ion-content has-header="true" padding="true">
-      <form class="list">
-        <div class="item item-divider">
-          Just tap the login button to simulate a successful login
-        </div>
+      <div class="list list-inset">
         <div>{{message}}</div>
         <label class="item item-input">
           <input type="text" placeholder="Username" ng-model="user.username" required>
@@ -14,9 +11,7 @@
         <label class="item item-input">
           <input type="password" placeholder="Password" ng-model="user.password" required>
         </label>
-        <div class="padding">
-          <button class="button button-block button-stable" ng-click="login()">Login</button>
-        </div>
-      </form>
+        <button class="button button-block button-positive" ng-click="login()">Login</button>
+      </div>
     </ion-content>
 </div>

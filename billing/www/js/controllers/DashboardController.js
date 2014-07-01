@@ -2,18 +2,21 @@
     'use strict';
     var app = window.app;
 
-    app.controller('DashCtrl', function($rootScope, $http, $scope, $ionicModal) {
-        $scope.message = "";
+    app.controller('DashCtrl', function($scope, DataService) {
         $scope.user = {}
+        DataService.getDashInfo(function(data) {
+            $scope.user = data;
+        }, function(err) {
 
-        $http.get('http://192.168.254.13:3000/dashInfo')
-            .success(function(data, status, headers, config) {
-                $scope.user = data.user;
-            })
-            .error(function(data, status, headers, config) {
-                $scope.message = "Error occured (";
-                console.log("Error occurred.  Status:" + status);
-            });
-        //$rootScope.$broadcast('event:auth-loginRequired', {});
+        });
+        $scope.doRefresh = function() {
+            DataService.getDashInfo(function(data) {
+                $scope.user = data;
+                $scope.$broadcast('scroll.refreshComplete');
+            }, function(err) {
+
+            }, true);
+        };
+
     });
 }(window, document));

@@ -1,9 +1,12 @@
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var util = require('util');
+var log4js = require('log4js');
 var RedisSessions = require("redis-sessions");
+
+
+var app = express();
 var rs = new RedisSessions();
 var rsapp = "billing";
 var salt = "hardpass3";
@@ -16,6 +19,8 @@ var client = mysql.createPool({
     database: 'bill',
     _socket: '/var/run/mysqld/mysqld.sock',
 });
+var logger = log4js.getLogger();
+
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -73,6 +78,7 @@ app.post('/login', function(req, res) {
                 if (err) {
                     console.error(err);
                     res.statusCode = 500;
+                    logger.warn("login create Redis session");
                     res.send({
                         result: 'error',
                         err: err.code
