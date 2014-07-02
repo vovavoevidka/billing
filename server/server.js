@@ -60,35 +60,37 @@ app.post('/login', function(req, res) {
 
     client.query('SELECT * FROM fullusers WHERE name = ? AND passwd = AES_ENCRYPT(?, ?)', [username, password, salt], function(err, rows, fields) {
         if (err) {
-            console.error(err);
-            res.statusCode = 500;
-            res.send({
-                result: 'error',
-                err: err.code
-            });
+            logger.error("[500] select user from db error", err);
+            return res.send(401);
         }
 
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        rs.create({
-                app: rsapp,
-                id: username,
-                ip: ip.substr(ip.length - 15)
-            },
-            function(err, resp) {
-                if (err) {
-                    console.error(err);
-                    res.statusCode = 500;
-                    logger.warn("login create Redis session");
+
+
+        var re = /\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b/;
+        var _ip = ip.match(re)[0] ? ip.match(re)[0] : "";
+        logger.info("client ip: ", _ip);
+
+        if (rows.length > 0) {
+            rs.create({
+                    app: rsapp,
+                    id: username,
+                    ip: _ip
+                },
+                function(err, resp) {
+                    if (err) {
+                        logger.error("[500] redis session create error", err);
+                        return res.send(401);
+                    }
                     res.send({
-                        result: 'error',
-                        err: err.code
+                        result: 'success',
+                        authorizationToken: resp.token
                     });
-                }
-                res.send({
-                    result: 'success',
-                    authorizationToken: resp.token
                 });
-            });
+        } else {
+            logger.error("[401] redis session create, user not found");
+            return res.send(401);
+        }
     });
 });
 

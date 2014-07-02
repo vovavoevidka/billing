@@ -9,7 +9,9 @@
         }, {
             scope: $scope,
             animation: 'slide-in-up',
-            focusFirstInput: true
+            focusFirstInput: true,
+            backdropClickToClose: false,
+            hardwareBackButtonClose: false
         });
         //Be sure to cleanup the modal by removing it from the DOM
         $scope.$on('$destroy', function() {

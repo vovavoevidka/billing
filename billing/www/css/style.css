@@ -1,1 +1,17 @@
 /* Empty. Add your own CSS if you like */
+.nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-add, .nav-title-slide-ios7:not(.no-animation) .button.back-button.ng-hide-remove {
+	opacity: 1;
+}
+.menu.menu-left .scroll-content {
+	background: rgb(68, 68, 68);
+	color: rgb(255, 255, 255);
+}
+
+.menu.menu-left div.scroll {
+	background: rgb(68, 68, 68);
+	color: rgb(255, 255, 255);	
+}
+.card.access span{
+	line-height: 20px;
+	font-size: 14px;
+}

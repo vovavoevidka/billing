@@ -2,7 +2,7 @@
     'use strict';
     window.app = angular.module('starter', ['ionic', 'http-auth-interceptor']);
     var app = window.app;
-    app.value('API_URL', "http://192.168.254.13:3000");
+    app.value('API_URL', "http://vova.lviv.ua:3000");
     app.config(function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -31,7 +31,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/dashboard.html',
-                        controller: 'DashCtrl',
+                        controller: 'DashCtrl'
                     }
                 }
             })
@@ -46,48 +46,39 @@
             })
             .state('app.settings', {
                 url: '/settings',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings-menu.html'
+                    }
+                }
+            })
+            .state('app.accountSettings', {
+                url: '/accountSettings',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/accountSettings.html',
+                        controller: 'AccountSettingsCtrl'
+                    }
+                }
+            })
+            .state('app.applicationSettings', {
+                url: '/applicationSettings',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/applicationSettings.html',
+                        controller: 'ApplicationSettingsCtrl'
+                    }
+                }
+            })
+        /*.state('app.settings', {
+                url: '/settings',
                 abstract: true,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings.html'
                     }
                 }
-            })
-            .state('app.settings.menu', {
-                url: '/menu',
-                onEnter: function($state) {
-                    debugger;
-                },
-                onExit: function($state) {
-                    debugger;
-                },
-                views: {
-                    'settings': {
-                        templateUrl: 'templates/settings-menu.html'
-                    }
-                }
-            })
-            .state('app.settings.accountSettings', {
-                url: '/accountSettings',
-                onEnter: function($state) {
-                    debugger;
-                },
-                views: {
-                    'settings': {
-                        templateUrl: 'templates/accountSettings.html',
-                        controller: 'AccountSettingsCtrl'
-                    }
-                }
-            })
-            .state('app.settings.applicationSettings', {
-                url: '/applicationSettings',
-                views: {
-                    'settings': {
-                        templateUrl: 'templates/applicationSettings.html',
-                        controller: 'ApplicationSettingsCtrl'
-                    }
-                }
-            })
+            })*/
         /*.state('tab.friend-detail', {
                 url: '/friend/:friendId',
                 views: {
