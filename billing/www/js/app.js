@@ -2,7 +2,7 @@
     'use strict';
     window.app = angular.module('starter', ['ionic', 'http-auth-interceptor']);
     var app = window.app;
-    app.value('API_URL', "http://vova.lviv.ua:3000");
+    app.value('API_URL', "http://192.168.254.13:3000");
     app.config(function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -44,6 +44,15 @@
                     }
                 }
             })
+            .state('app.paymentHistory', {
+                url: '/paymentHistory',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/payments.html',
+                        controller: 'PaymentsCtrl'
+                    }
+                }
+            })
             .state('app.settings', {
                 url: '/settings',
                 views: {
@@ -52,8 +61,8 @@
                     }
                 }
             })
-            .state('app.accountSettings', {
-                url: '/accountSettings',
+            .state('app.accountsettings', {
+                url: '/accountsettings',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/accountSettings.html',
@@ -61,8 +70,8 @@
                     }
                 }
             })
-            .state('app.applicationSettings', {
-                url: '/applicationSettings',
+            .state('app.applicationsettings', {
+                url: '/applicationsettings',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/applicationSettings.html',
