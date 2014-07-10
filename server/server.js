@@ -175,31 +175,12 @@ app.post('/payments', isAuthUser, function(req, res) {
         });
     };
     var returnResp = function(rows) {
-        if (from == -1 && firstItemId) {
-            var payments = [];
-            var i = 0;
-            while (rows[i].id != firstItemId && rows[i]) {
-                payments.push(rows[i]);
-                i++;
-            }
-            res.send({
-                payments: payments,
-                isEnd: false
-            });
-        }
-
-        var isEnd = false;
-        if (from + count >= rows.length)
-            isEnd = true;
-        res.send({
-            payments: rows.slice(from, from + count),
-            isEnd: isEnd
-        });
+        
     };
 
     var sql = "";
     logger.warn("selecting payment for user", userId);
-    client.query("SELECT * FROM pays WHERE mid = ? AND type IN (10,20) ORDER BY time DESC", [userId], function(err, rows, fields) {
+    client.query("SELECT *, mid as 'rmid', time as 'rtime', (SELECT SUM(cash) FROM pays WHERE mid=rmid AND type IN (10,20) AND time<=rtime) as 'balance' FROM pays WHERE mid = ? AND type IN (10,20) ORDER BY time DESC", [userId], function(err, rows, fields) {
         if (err || !rows || rows.length == 0) {
             logger.error("[500] select payments error", err);
             logger.error("[500] select payments rows", rows);
@@ -220,11 +201,31 @@ app.post('/payments', isAuthUser, function(req, res) {
             });
         };
 
-        var succ = function(i) {
+        /*var succ = function(i) {
             rows[i] ? calcSum(rows[i], i, succ, err) : returnResp(rows);
-        };
+        };*/
 
-        calcSum(rows[0], 0, succ, err);
+        //calcSum(rows[0], 0, succ, err);
+        if (from == -1 && firstItemId) {
+            var payments = [];
+            var i = 0;
+            while (rows[i].id != firstItemId && rows[i]) {
+                payments.push(rows[i]);
+                i++;
+            }
+            return res.send({
+                payments: payments,
+                isEnd: false
+            });
+        }
+
+        var isEnd = false;
+        if (from + count >= rows.length)
+            isEnd = true;
+        return res.send({
+            payments: rows.slice(from, from + count),
+            isEnd: isEnd
+        });
     });
 });
 

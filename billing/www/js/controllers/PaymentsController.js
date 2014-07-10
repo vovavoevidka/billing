@@ -9,10 +9,11 @@
         $scope.Math = window.Math;
         $scope.loadMore = function() {
             if (!$scope.isEnd)
-                DataService.getPaymentsInfo(nowFetched, nowFetched + 20, function(data, isEnd) {
+                DataService.getPaymentsInfo(nowFetched, 20, function(data, isEnd) {
                     $scope.payments.push.apply($scope.payments, data);
                     nowFetched += 20;
                     $scope.isEnd = isEnd;
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
                 }, function(error) {});
         };
 
@@ -21,6 +22,7 @@
                 $scope.payments.unshift.apply($scope.payments, data);
                 nowFetched += data.length;
                 $scope.isEnd = isEnd;
+                $scope.$broadcast('scroll.refreshComplete');
             }, function(error) {});
         };
 

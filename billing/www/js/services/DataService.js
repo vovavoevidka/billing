@@ -34,7 +34,7 @@
                 } else {
                     paymentsInfo.payments.push.apply(paymentsInfo.payments, data.payments);
                     paymentsInfo.isEnd = data.isEnd;
-                    success(paymentsInfo.payments.slice(from, count), paymentsInfo.isEnd)
+                    success(paymentsInfo.payments.slice(from, from + count), paymentsInfo.isEnd)
                 }
             }).error(function(data, status, headers, config) {
                 error(data);
@@ -56,7 +56,8 @@
                     PaymentsInfo(from, count, success, error)
                 }
                 if (paymentsInfo && paymentsInfo.payments && paymentsInfo.payments[from] && paymentsInfo.payments[from + count]) {
-                    success(paymentsInfo.payments.slice(from, count), paymentsInfo.isEnd)
+                    var isEnd = (from + count >= paymentsInfo.payments.length) ? true : false;
+                    success(paymentsInfo.payments.slice(from, from + count), isEnd);
                 } else {
                     PaymentsInfo(from, count, success, error);
                 }

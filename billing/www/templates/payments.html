@@ -14,7 +14,8 @@
 				<div class="row">
 					<span ng-if="item.cash > 0">income</span>
 					<span ng-if="item.cash < 0">outgo</span>
-					<p class="balanced" ng-class="{'balanced': item.cash > 0, 'assertive': item.cash < 0, }">{{Math.abs(item.cash)}}</p>
+					<!-- {{item.cash > 0}} -->
+					<p class="" ng-class="{'balanced': item.cash > 0, 'assertive': item.cash < 0}">{{Math.abs(item.cash)}}</p>
 				</div>
 			</div>
 
