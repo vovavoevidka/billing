@@ -1,0 +1,62 @@
+/* Empty. Add your own CSS if you like */
+menu.menu-left .scroll-content {
+	background: rgb(68, 68, 68);
+	color: rgb(255, 255, 255);
+}
+
+.menu.menu-left .ionic-scroll {
+	background: rgb(68, 68, 68);
+	color: rgb(255, 255, 255);	
+}
+.card.access span{
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.scroll-refresher {
+	height: 60px;
+	top: -80px;
+}
+.list.card:last-child {
+	padding-bottom: 20px;
+}
+
+.payment-list .item.item-header {
+	background: #eee;
+	padding: 5px 15px;
+}
+.payment-list .item.item-header p {
+	display: block;
+	float: right;
+	font-size: 20px;
+}
+.payment-list .item.item-header span {
+	display: block;
+	float: left;
+	padding-right: 5px;
+}
+.payment-list .item.item-header p {
+	color: #ef4e3a;
+}
+.payment-list .item.item-header p.balanced {
+	color: #66cc33;
+}
+
+.payment-list .item.item-body p {
+	margin: 0;	
+}
+.payment-list .item.item-footer {
+	background: #eee;
+	padding: 5px 15px;
+}
+.payment-list .item.item-footer p {
+	margin-bottom: 0;
+}
+.payment-list .item.item-footer p.stable {
+	display: block;
+	float: left;
+}
+.payment-list .item.item-footer p.dark {
+	display: block;
+	float: right;
+}

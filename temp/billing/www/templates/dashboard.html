@@ -1,0 +1,54 @@
+<ion-view title="Dashboard">
+	<ion-nav-buttons side="left">
+    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  	</ion-nav-buttons>
+	<ion-content class="has-header">
+		<ion-refresher
+	    pulling-text="Pull to refresh..."
+	    on-refresh="doRefresh()">
+	  	</ion-refresher>
+		<div class="row">
+			<div class="col-50">
+				<div class="card">
+					<div class="item item-divider">
+						Welcome:
+					</div>
+					<div class="item item-text-wrap">
+						<h2>{{user.fio}}</h2>
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						Plan:
+					</div>
+					<div class="item item-text-wrap">
+						<h3>{{user.pl_name}}</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-50">
+				<div class="card">
+					<div class="item item-divider">
+						Balance:
+					</div>
+					<div class="item item-text-wrap">
+						<h2>{{user.balance}}</h2>
+					</div>
+				</div>
+				<div class="card access">
+					<div class="item item-divider">
+						Access status:
+					</div>
+					<div class="item item-text-wrap">
+						<div ng-show="user.now_on">
+							<img src="../img/lock_green.png"><span class="balanced" > access granted</span>
+						</div>
+						<div ng-show="!user.now_on">
+							<img src="../img/lock_red.png"><span class="assertive"> access denied</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view title="Account settings">
+	<ion-nav-buttons side="left">
+    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  	</ion-nav-buttons>
+	<ion-content class="has-header padding">
+		<form name="changePasswordForm">
+  			<div class="list">
+				<label class="item item-input">
+					<input 
+					type="password" 
+					name="password" 
+					ng-model="data.password"
+					required  
+					placeholder="Password"
+					ng-minlength="6">
+				</label>
+				<label class="item item-input">
+					<input 
+					type="password" 
+					name="confirm_password"
+					ng-model="data.confirm_password"
+					ui-validate=" '$value==data.password' "
+   					ui-validate-watch=" 'data.password' "
+   					required 
+					placeholder="Confirm password">
+				</label>
+				<div ng-show="!!changePasswordForm.confirm_password.$error.validator && changePasswordForm.confirm_password.$pristine">
+					Password mismatch
+				</div>
+				<button class="button button-block button-positive" 
+				ng-show="changePasswordForm.$valid"
+				ng-click="changePassword(changePasswordForm.$valid)">
+					Submit
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>
