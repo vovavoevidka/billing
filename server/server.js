@@ -135,16 +135,20 @@ app.get('/', isAuthUser, function(req, res) {
 
 app.get('/dashInfo', isAuthUser, function(req, res) {
     var user = req.username;
+    logger.info("[IN_CONNECTION]select dash info");
     client.query("SELECT fu.*, plans.name as pl_name, plans.descr as pl_descr FROM fullusers AS fu JOIN plans2 AS plans ON fu.paket = plans.id WHERE fu.name = ?", [user], function(err, rows, fields) {
         if (err) {
             res.statusCode = 500;
+            logger.error("[500] select dash info", err);
             return res.send({
                 result: 'error',
                 err: err.code
             });
         }
+        logger.info("[200] select dash info", rows);
         if (rows && rows[0]) {
             var user = rows[0];
+            delete user.passwd;
             return res.send({
                 user: user
             });
@@ -157,6 +161,31 @@ app.get('/dashInfo', isAuthUser, function(req, res) {
     });
 });
 
+app.post('/changePassword', isAuthUser, function(req, res) {
+    var user = req.username;
+    var userId = req.userId;
+
+    var password = req.body['password'];
+    logger.info("[200] change password init", user , password);
+    if(userId && password) {
+        client.query("UPDATE users SET passwd=AES_ENCRYPT(?, ?) WHERE name = ?", [password, salt, user], function(err, rows, fields) {
+            if (err) {
+                res.statusCode = 500;
+                logger.error("[500] change password", err);
+                return res.send({
+                    result: 'error',
+                    err: err.code
+                });
+            }
+            logger.info("[200] change password");
+            return res.send({
+                user: rows[0]
+            }); 
+        });
+    }
+
+});
+
 app.post('/payments', isAuthUser, function(req, res) {
     var user = req.username;
     var userId = req.userId;
@@ -165,20 +194,6 @@ app.post('/payments', isAuthUser, function(req, res) {
     var count = req.body['length'] || 20;
     var firstItemId = req.body['fid'] || null;
 
-    var calcSum = function(row, i, success, error) {
-        client.query("SELECT SUM(cash) as sum FROM pays WHERE mid=? AND type IN (10,20) AND time<=?", [userId, row.time], function(err, rows, fields) {
-            if (err) {
-                error(err);
-            }
-            row.balance = rows && rows[0] ? rows[0].sum : null;
-            success(i);
-        });
-    };
-    var returnResp = function(rows) {
-        
-    };
-
-    var sql = "";
     logger.warn("selecting payment for user", userId);
     client.query("SELECT *, mid as 'rmid', time as 'rtime', (SELECT SUM(cash) FROM pays WHERE mid=rmid AND type IN (10,20) AND time<=rtime) as 'balance' FROM pays WHERE mid = ? AND type IN (10,20) ORDER BY time DESC", [userId], function(err, rows, fields) {
         if (err || !rows || rows.length == 0) {
@@ -201,11 +216,6 @@ app.post('/payments', isAuthUser, function(req, res) {
             });
         };
 
-        /*var succ = function(i) {
-            rows[i] ? calcSum(rows[i], i, succ, err) : returnResp(rows);
-        };*/
-
-        //calcSum(rows[0], 0, succ, err);
         if (from == -1 && firstItemId) {
             var payments = [];
             var i = 0;
@@ -228,6 +238,16 @@ app.post('/payments', isAuthUser, function(req, res) {
         });
     });
 });
+
+/*app.post('/traffic', isAuthUser, function(req, res) {
+    var user = req.username;
+    var userId = req.userId;
+
+    logger.warn("selecting traffic for user", userId);
+    client.query("SELECT SUM(`in`) AS a ,SUM(`out`) AS b,time FROM x$tname WHERE mid IN ($Sel_id) AND class=$class AND (`in`>0 OR `OUT`>0) GROUP BY time ORDER BY time DESC", [], function(err, rows, fields) {
+        
+    });
+});*/
 
 app.listen(port);
 console.log('Magic happens on port ' + port);

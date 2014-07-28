@@ -2,7 +2,11 @@
     'use strict';
     var app = window.app;
 
-    app.controller('AppCtrl', function($scope, $ionicModal) {
+    app.controller('AppCtrl', function($scope, $rootScope, $ionicModal, $ionicSideMenuDelegate) {
+
+        $rootScope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
 
         $ionicModal.fromTemplateUrl('templates/login.html', function(modal) {
             $scope.loginModal = modal;

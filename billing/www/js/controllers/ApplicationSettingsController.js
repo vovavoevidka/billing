@@ -3,9 +3,11 @@
     var app = window.app;
 
     app.controller('ApplicationSettingsCtrl', function($scope, API_URL) {
-        $scope.apiUrl = angular.copy(API_URL);
+    	window.localStorage['API_URL'] = API_URL.value;
+        $scope.apiUrl = angular.copy(API_URL.value);
         $scope.saveApiUrl = function() {
-            API_URL = $scope.apiUrl;
+            API_URL.value = $scope.apiUrl;
+            window.localStorage['API_URL'] = API_URL.value;
         };
     });
 }(window, document));

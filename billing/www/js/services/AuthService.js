@@ -5,7 +5,7 @@
     app.factory('AuthenticationService', function($rootScope, $http, authService, $httpBackend, API_URL) {
         var service = {
             login: function(user) {
-                $http.post(API_URL + '/login', {}, {
+                $http.post(API_URL.value + '/login', {}, {
                     headers: {
                         username: user.username.toString(),
                         password: user.password.toString()
@@ -30,7 +30,7 @@
                     });
             },
             logout: function(user) {
-                $http.post(API_URL + '/logout', {}, {
+                $http.post(API_URL.value + '/logout', {}, {
                     ignoreAuthModule: true
                 }).
                 finally(function(data) {

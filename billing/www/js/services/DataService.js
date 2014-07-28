@@ -10,7 +10,7 @@
         };
 
         var getDash = function(success, error) {
-            $http.get(API_URL + '/dashInfo')
+            $http.get(API_URL.value + '/dashInfo')
                 .success(function(data, status, headers, config) {
                     dashInfo = data.user;
                     success(dashInfo);
@@ -23,7 +23,7 @@
 
         var PaymentsInfo = function(from, count, success, error) {
             var fid = (paymentsInfo.payments.length) ? paymentsInfo.payments[0].id : null;
-            $http.post(API_URL + '/payments', {
+            $http.post(API_URL.value + '/payments', {
                 'from': from,
                 'length': count,
                 'fid': fid
