@@ -7,7 +7,7 @@
 var API_URL = window.localStorage['API_URL'] || "http://192.168.254.13:3000";
 window.app_services = angular.module('billing.services', ['http-auth-interceptor']);
 window.app_controllers = angular.module('billing.controllers', ['billing.services']);
-angular.module('billing', ['ionic', 'billing.controllers'])
+angular.module('billing', ['ionic', 'billing.controllers', 'ux'])
 .value('API_URL', {value: API_URL})
 
 .config(function($httpProvider) {
